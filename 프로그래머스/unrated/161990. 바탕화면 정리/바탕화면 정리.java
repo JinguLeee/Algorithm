@@ -1,7 +1,7 @@
 class Solution {
     public int[] solution(String[] wallpaper) {
-        int sX = 0;
-        int sY = 0;
+        int sX = Integer.MAX_VALUE;
+        int sY = Integer.MAX_VALUE;
         int eX = 0;
         int eY = 0;
         boolean start = false;
@@ -9,18 +9,10 @@ class Solution {
             char[] charArray = wallpaper[i].toCharArray();
             for (int j = 0; j < charArray.length; j++) {
                 if (charArray[j] == '#') {
-                    if (start == false) {
-                        sX = i;
-                        sY = j;
-                        eX = i;
-                        eY = j;
-                        start = true;
-                    }
-                    else {
-                        if (sY > j) sY = j;
-                        if (eX < i) eX = i;
-                        if (eY < j) eY = j;
-                    }
+                    if (sX > i) sX = i;
+                    if (sY > j) sY = j;
+                    if (eX < i) eX = i;
+                    if (eY < j) eY = j;
                 }
             }
         }
