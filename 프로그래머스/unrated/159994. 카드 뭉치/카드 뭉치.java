@@ -4,14 +4,8 @@ class Solution {
         int index2 = 0;
         
         for (int i = 0; i < goal.length; i++) {
-            if (cards1.length > index1 && cards1[index1].equals(goal[i])) {
-                index1++;
-                continue;
-            }
-            else if (cards2.length > index2 && cards2[index2].equals(goal[i])) {
-                index2++;
-                continue;
-            }
+            if (cards1.length > index1 && cards1[index1].equals(goal[i])) index1++;
+            else if (cards2.length > index2 && cards2[index2].equals(goal[i])) index2++;
             else return "No";
         }
         return "Yes";
