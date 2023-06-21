@@ -1,13 +1,15 @@
 -- 코드를 입력하세요
+SET @HOUR = -1;
+
 SELECT A.HOUR
-     , NVL(B.COUNT, 0) COUNT
-  FROM ( SELECT LEVEL-1 HOUR
-           FROM DUAL
-        CONNECT BY LEVEL<= 24
-       ) A,
-       ( SELECT TO_NUMBER(TO_CHAR(DATETIME, 'HH24')) HOUR
+     , COALESCE(B.COUNT, 0) COUNT
+  FROM ( SELECT (@HOUR := @HOUR +1) HOUR
+           FROM ANIMAL_OUTS
+          WHERE @HOUR < 23
+       ) A
+  LEFT JOIN
+       ( SELECT DATE_FORMAT(DATETIME, '%H') HOUR
               , COUNT(*) COUNT FROM ANIMAL_OUTS
-          GROUP BY TO_CHAR(DATETIME, 'HH24')
-       ) B
- WHERE A.HOUR = B.HOUR(+)
- ORDER BY A.HOUR
+          GROUP BY DATE_FORMAT(DATETIME, '%H')
+          ORDER BY HOUR
+       ) B ON A.HOUR = B.HOUR
