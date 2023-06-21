@@ -1,0 +1,13 @@
+-- 코드를 입력하세요
+SELECT A.HOUR
+     , NVL(B.COUNT, 0) COUNT
+  FROM ( SELECT LEVEL-1 HOUR
+           FROM DUAL
+        CONNECT BY LEVEL<= 24
+       ) A,
+       ( SELECT TO_NUMBER(TO_CHAR(DATETIME, 'HH24')) HOUR
+              , COUNT(*) COUNT FROM ANIMAL_OUTS
+          GROUP BY TO_CHAR(DATETIME, 'HH24')
+       ) B
+ WHERE A.HOUR = B.HOUR(+)
+ ORDER BY A.HOUR
