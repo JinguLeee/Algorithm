@@ -15,9 +15,8 @@ public class Main {
             else minPq.offer(Integer.parseInt(br.readLine()));
 
             if (!minPq.isEmpty() && maxPq.peek() > minPq.peek()) {
-                int max = maxPq.poll();
                 maxPq.offer(minPq.poll());
-                minPq.offer(max);
+                minPq.offer(maxPq.poll());
             }
             sb.append(maxPq.peek()).append("\n");
         }
