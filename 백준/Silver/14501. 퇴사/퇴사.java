@@ -13,7 +13,7 @@ public class Main {
             count[i][1] = Integer.parseInt(st.nextToken());
         }
 
-        long[] dp = new long[N+1];
+        int[] dp = new int[N+1];
         for (int i = N-1; i >= 0; i--) {
             if (i + count[i][0] > N) dp[i] = dp[i+1];
             else dp[i] = Math.max(dp[i+1], dp[i+count[i][0]] + count[i][1]);
