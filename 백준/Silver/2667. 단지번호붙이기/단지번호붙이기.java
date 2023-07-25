@@ -23,7 +23,7 @@ public class Main {
             for (int j = 1; j <= N; j++) {
                 if (arr[i][j] == 1) {
                     count = 0;
-                    dfs(i, j);
+                    bfs(i, j);
                     pq.add(count);
                 }
             }
@@ -38,12 +38,19 @@ public class Main {
         }
         System.out.println(sb);
     }
-    
-    static void dfs(int i, int j) {
-        count++;
+    static void bfs(int i, int j) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{i, j});
         arr[i][j] = 0;
-        for (int k = 0; k < 4; k++) {
-            if (arr[i+x[k]][j+y[k]] == 1) dfs(i+x[k], j+y[k]);
+        while (!queue.isEmpty()) {
+            int[] q = queue.poll();
+            count++;
+            for (int k = 0; k < 4; k++) {
+                if (arr[q[0] + x[k]][q[1] + y[k]] == 1) {
+                    arr[q[0] + x[k]][q[1] + y[k]] = 0;
+                    queue.add(new int[]{q[0] + x[k], q[1] + y[k]});
+                }
+            }
         }
     }
 }
