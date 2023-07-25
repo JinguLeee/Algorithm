@@ -22,14 +22,23 @@ public class Main {
         }
 
         check = new boolean[node+1];
-        dfs(1);
+        bfs(1);
         System.out.println(count - 1);
     }
-    static void dfs(int num) {
+
+    static void bfs(int num) {
+        Queue<Integer> queue = new LinkedList<>();
         check[num] = true;
-        count++;
-        for (int i = 1; i <= node; i++) {
-            if (!check[i] && arr[num][i] == 1) dfs(i);
+        queue.add(num);
+        while (!queue.isEmpty()){
+            int q = queue.poll();
+            count++;
+            for (int i = 1; i <= node; i++) {
+                if (!check[i] && arr[q][i] == 1) {
+                    queue.add(i);
+                    check[i] = true;
+                }
+            }
         }
     }
 }
