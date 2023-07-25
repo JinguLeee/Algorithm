@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.*;
 import java.util.*;
 
@@ -29,7 +30,7 @@ public class Main {
             for (int i = 1; i <= xLength; i++) {
                 for (int j = 1; j <= yLength; j++) {
                     if (arr[i][j] == 1) {
-                        dfs(i, j);
+                        bfs(i, j);
                         count++;
                     }
                 }
@@ -39,10 +40,19 @@ public class Main {
         }
         System.out.println(sb);
     }
-    static void dfs(int i, int j) {
+    static void bfs(int i, int j) {
+        Queue<Point> queue = new LinkedList<>();
+        queue.add(new Point(i, j));
         arr[i][j] = 0;
-        for (int k = 0; k < 4; k++) {
-            if (arr[i+dx[k]][j+dy[k]] == 1) dfs(i+dx[k], j+dy[k]);
+
+        while (!queue.isEmpty()) {
+            Point point = queue.poll();
+            for (int k = 0; k < 4; k++) {
+                if (arr[point.x+dx[k]][point.y + dy[k]] == 1) {
+                    arr[point.x+dx[k]][point.y + dy[k]] = 0;
+                    queue.add(new Point(point.x+dx[k], point.y + dy[k]));
+                }
+            }
         }
     }
 }
