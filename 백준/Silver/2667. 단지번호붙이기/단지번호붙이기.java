@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.*;
 import java.util.*;
 
@@ -39,16 +40,16 @@ public class Main {
         System.out.println(sb);
     }
     static void bfs(int i, int j) {
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{i, j});
+        Queue<Point> queue = new LinkedList<>();
+        queue.add(new Point(i, j));
         arr[i][j] = 0;
         while (!queue.isEmpty()) {
-            int[] q = queue.poll();
+            Point p = queue.poll();
             count++;
             for (int k = 0; k < 4; k++) {
-                if (arr[q[0] + x[k]][q[1] + y[k]] == 1) {
-                    arr[q[0] + x[k]][q[1] + y[k]] = 0;
-                    queue.add(new int[]{q[0] + x[k], q[1] + y[k]});
+                if (arr[p.x + x[k]][p.y + y[k]] == 1) {
+                    arr[p.x + x[k]][p.y + y[k]] = 0;
+                    queue.add(new Point(p.x + x[k], p.y + y[k]));
                 }
             }
         }
