@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    static int[] x = {1, -1, 0, 0};
+    static int[] y = {0, 0, 1, -1};
+    static int[][] arr;
+    static int count;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+
+        arr = new int[N +2][N +2];
+        for (int i = 1; i <= N; i++) {
+            String str = br.readLine();
+            for (int j = 1; j <= N; j++) {
+                arr[i][j] = Integer.parseInt(str.substring(j-1, j));
+            }
+        }
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= N; j++) {
+                if (arr[i][j] == 1) {
+                    count = 0;
+                    dfs(i, j);
+                    pq.add(count);
+                }
+            }
+        }
+
+        StringBuffer sb = new StringBuffer();
+        int size = pq.size();
+        sb.append(size);
+
+        for (int i = 0; i < size; i++) {
+            sb.append("\n" + pq.poll());
+        }
+        System.out.println(sb);
+    }
+    
+    static void dfs(int i, int j) {
+        count++;
+        arr[i][j] = 0;
+        for (int k = 0; k < 4; k++) {
+            if (arr[i+x[k]][j+y[k]] == 1) dfs(i+x[k], j+y[k]);
+        }
+    }
+}
