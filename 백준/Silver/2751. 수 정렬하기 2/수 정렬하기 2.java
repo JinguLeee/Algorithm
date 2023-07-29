@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.PriorityQueue;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -7,12 +7,14 @@ public class Main {
         StringBuffer sb = new StringBuffer();
         int N = Integer.parseInt(br.readLine());
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        int[] ints = new int[N];
         for (int i = 0; i < N; i++) {
-            pq.add(Integer.parseInt(br.readLine()));
+            ints[i] = Integer.parseInt(br.readLine());
         }
-        while (!pq.isEmpty()) {
-            sb.append(pq.poll() + "\n");
+
+        Arrays.sort(ints);
+        for (int i = 0; i < N; i++) {
+            sb.append(ints[i] + "\n");
         }
         System.out.println(sb);
     }
