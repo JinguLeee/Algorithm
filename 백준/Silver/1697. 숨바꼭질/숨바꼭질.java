@@ -13,31 +13,33 @@ public class Main {
         }
 
         boolean[] visited = new boolean[100001];
-        int[] dp = new int[100001];
         Queue<Integer> queue = new LinkedList<>();
 
         queue.add(start);
         visited[start] = true;
+        int size = 0;
+        int count = 0;
         while (true) {
-            int num = queue.poll();
-            if (num-1 == end || num+1 == end || num*2 == end) {
-                System.out.println(dp[num]+1);
-                return;
-            }
-            if (num-1 >= 0 && !visited[num-1]) {
-                queue.add(num-1);
-                visited[num-1] = true;
-                dp[num-1] = dp[num]+1;
-            }
-            if (num+1 <= 100000 && !visited[num+1]) {
-                queue.add(num+1);
-                visited[num+1] = true;
-                dp[num+1] = dp[num]+1;
-            }
-            if (num*2 <= 100000 && !visited[num*2]) {
-                queue.add(num*2);
-                visited[num*2] = true;
-                dp[num*2] = dp[num]+1;
+            size = queue.size();
+            count++;
+            for (int i = 0; i < size; i++) {
+                int num = queue.poll();
+                if (num-1 == end || num+1 == end || num*2 == end) {
+                    System.out.println(count);
+                    return;
+                }
+                if (num-1 >= 0 && !visited[num-1]) {
+                    queue.add(num-1);
+                    visited[num-1] = true;
+                }
+                if (num+1 <= 100000 && !visited[num+1]) {
+                    queue.add(num+1);
+                    visited[num+1] = true;
+                }
+                if (num*2 <= 100000 && !visited[num*2]) {
+                    queue.add(num*2);
+                    visited[num*2] = true;
+                }
             }
         }
     }
