@@ -7,6 +7,7 @@
 ### 🚀 Bronze
 | 문제번호 | 링크 |
 | ----- | ----- |
+|1259. 팰린드롬수|[링크](./%EB%B0%B1%EC%A4%80/Bronze/1259.%E2%80%85%ED%8C%B0%EB%A6%B0%EB%93%9C%EB%A1%AC%EC%88%98/README.md)|
 |1546. 평균|[링크](./%EB%B0%B1%EC%A4%80/Bronze/1546.%E2%80%85%ED%8F%89%EA%B7%A0/%ED%8F%89%EA%B7%A0.java)|
 |2557. Hello World|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2557.%E2%80%85Hello%E2%80%85World/README.md)|
 |2775. 부녀회장이 될테야|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2775.%E2%80%85%EB%B6%80%EB%85%80%ED%9A%8C%EC%9E%A5%EC%9D%B4%E2%80%85%EB%90%A0%ED%85%8C%EC%95%BC/%EB%B6%80%EB%85%80%ED%9A%8C%EC%9E%A5%EC%9D%B4%E2%80%85%EB%90%A0%ED%85%8C%EC%95%BC.java)|
