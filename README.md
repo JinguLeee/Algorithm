@@ -8,6 +8,7 @@
 | 문제번호 | 링크 |
 | ----- | ----- |
 |1000. A＋B|[링크](./%EB%B0%B1%EC%A4%80/Bronze/1000.%E2%80%85A%EF%BC%8BB/README.md)|
+|10998. A×B|[링크](./%EB%B0%B1%EC%A4%80/Bronze/10998.%E2%80%85A%C3%97B/A%C3%97B.py)|
 |1259. 팰린드롬수|[링크](./%EB%B0%B1%EC%A4%80/Bronze/1259.%E2%80%85%ED%8C%B0%EB%A6%B0%EB%93%9C%EB%A1%AC%EC%88%98/%ED%8C%B0%EB%A6%B0%EB%93%9C%EB%A1%AC%EC%88%98.java)|
 |1546. 평균|[링크](./%EB%B0%B1%EC%A4%80/Bronze/1546.%E2%80%85%ED%8F%89%EA%B7%A0/README.md)|
 |2557. Hello World|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2557.%E2%80%85Hello%E2%80%85World/Hello%E2%80%85World.java)|
