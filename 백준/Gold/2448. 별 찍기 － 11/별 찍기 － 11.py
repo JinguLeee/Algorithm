@@ -1,18 +1,18 @@
+def draw_triangle(x, y, size, data):
+    if size == 3:
+        data[x][y] = '*'
+        data[x+1][y-1] = data[x+1][y+1] = '*'
+        data[x+2][y-2] = data[x+2][y-1] = data[x+2][y] = data[x+2][y+1] = data[x+2][y+2] = '*'
+    else:
+        half = size//2
+        draw_triangle(x, y, half, data)
+        draw_triangle(x+half, y-half, half, data)
+        draw_triangle(x+half, y+half, half, data)
+        
+
 N = int(input())
-data = [[' '] * (N*2-1) for _ in range(N)]
-data[0][N-1] = '*'
+data = [[' '] * (2 * N - 1) for _ in range(N)]
+draw_triangle(0, N - 1, N, data)
 
-for row in range(0, N, 3):
-    for col in range(2, N*2-3):
-        if row != 0 and data[row-3][col] == '*':
-            data[row][col-3] = '*' if data[row][col-3] != '*' else ' '
-            data[row][col+3] = '*'
-
-    for col in range(2, N*2-3):
-        if data[row][col] == '*':
-            data[row+1][col-1] = data[row+1][col+1]= '*'
-            data[row+2][col-2] = data[row+2][col-1] = data[row+2][col] = data[row+2][col+1] = data[row+2][col+2]= '*'
-
-    print(''.join(data[row]))
-    print(''.join(data[row+1]))
-    print(''.join(data[row+2]))
+for row in data:
+    print(''.join(row))
