@@ -41,6 +41,7 @@
 |30826. 그 긴 수|[링크](./%EB%B0%B1%EC%A4%80/Gold/30826.%E2%80%85%EA%B7%B8%E2%80%85%EA%B8%B4%E2%80%85%EC%88%98/README.md)|
 |5430. AC|[링크](./%EB%B0%B1%EC%A4%80/Gold/5430.%E2%80%85AC/AC.java)|
 |9251. LCS|[링크](./%EB%B0%B1%EC%A4%80/Gold/9251.%E2%80%85LCS/LCS.java)|
+|9935. 문자열 폭발|[링크](./%EB%B0%B1%EC%A4%80/Gold/9935.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4%E2%80%85%ED%8F%AD%EB%B0%9C/%EB%AC%B8%EC%9E%90%EC%97%B4%E2%80%85%ED%8F%AD%EB%B0%9C.py)|
 ### 🚀 Silver
 | 문제번호 | 링크 |
 | ----- | ----- |
